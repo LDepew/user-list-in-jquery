@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/api/users/";
+// const url = "http://localhost:8080/api/users/";
 
 let newuser = {
     id: 0, 
@@ -18,6 +18,7 @@ $().ready(() => {
 
     userList()
         .done((users) => {
+            console.log(users);
             allUsers = users;
             display(allUsers);
         })
@@ -55,14 +56,14 @@ const display = (users) => {
     tbody.empty();
     for(let user of users) {
         let tr = $("<tr></tr>");
-        let tdId = $(`<td>${user.Id}</td>`);
+        let tdId = $(`<td>${user.id}</td>`);
         tr.append(tdId);
-        tr.append($(`<td>{user.username}</td>`));
-        let tdName = $(`<td>${user.firstname} ${user.lastname}</td>`);
+        tr.append($(`<td>${user.username}</td>`));
+        let tdName = $(`<td>${user.firstName} ${user.lastName}</td>`);
         tr.append(tdName);
-        let tdReviewer = $(`<td>${user.isReviewer ? "Yes": "No"}</td>`);
+        let tdReviewer = $(`<td>${user.reviewer ? "Yes": "No"}</td>`);
         tr.append(tdReviewer);
-        let tdAdmin = $(`<td>${user.isAdmin ? "Yes": "No"}</td>`);
+        let tdAdmin = $(`<td>${user.admin ? "Yes": "No"}</td>`);
         tr.append(tdAdmin);
         tbody.append(tr);
     }
