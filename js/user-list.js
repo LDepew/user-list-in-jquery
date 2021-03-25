@@ -12,7 +12,16 @@ let newuser = {
     isAdmin: false
 }
 
+let allUsers = [];
+
 $().ready(() => {
+
+    userList()
+        .done((users) => {
+            allUsers = users;
+            display(allUsers);
+        })
+        .fail()
 
     // $.ajax({
     //     method: "POST",
@@ -28,15 +37,20 @@ $().ready(() => {
     // })
 
 
-    console.log("Before call to getJSON");
-    $.getJSON(url)
-    .done((users) => {
-        console.log(users);
-        console.log("After call completed to getJSON");
-    })
-    .fail((err) => {
-        console.error(err);
-    })
-    console.log("After call to getJSON");
+    // console.log("Before call to getJSON");
+    // $.getJSON(url)
+    // .done((users) => {
+    //     console.log(users);
+    //     console.log("After call completed to getJSON");
+    // })
+    // .fail((err) => {
+    //     console.error(err);
+    // })
+    // console.log("After call to getJSON");
 
-});
+})
+
+const display = (users) => {
+    let tbody = $("tbody");
+    tbody.empty();
+}
