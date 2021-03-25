@@ -64,5 +64,6 @@ const display = (users) => {
         tr.append(tdReviewer);
         let tdAdmin = $(`<td>${user.isAdmin ? "Yes": "No"}</td>`);
         tr.append(tdAdmin);
+        tbody.append(tr);
     }
 }
