@@ -28,13 +28,15 @@ $().ready(() => {
     // })
 
 
-
+    console.log("Before call to getJSON");
     $.getJSON(url)
-        .done((users) => {
-            console.log(users);
-        })
-        .fail((err) => {
-            console.error(err);
-        })
+    .done((users) => {
+        console.log(users);
+        console.log("After call completed to getJSON");
+    })
+    .fail((err) => {
+        console.error(err);
+    })
+    console.log("After call to getJSON");
 
 });
