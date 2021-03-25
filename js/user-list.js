@@ -53,4 +53,16 @@ $().ready(() => {
 const display = (users) => {
     let tbody = $("tbody");
     tbody.empty();
+    for(let user of users) {
+        let tr = $("<tr></tr>");
+        let tdId = $(`<td>${user.Id}</td>`);
+        tr.append(tdId);
+        tr.append($(`<td>{user.username}</td>`));
+        let tdName = $(`<td>${user.firstname} ${user.lastname}</td>`);
+        tr.append(tdName);
+        let tdReviewer = $(`<td>${user.isReviewer ? "Yes": "No"}</td>`);
+        tr.append(tdReviewer);
+        let tdAdmin = $(`<td>${user.isAdmin ? "Yes": "No"}</td>`);
+        tr.append(tdAdmin);
+    }
 }
